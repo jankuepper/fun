@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 app.use(
   cors({
-    origin: "*",
+    origin: "http://jankuepper.de",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
