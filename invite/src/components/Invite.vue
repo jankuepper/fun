@@ -78,7 +78,7 @@ export default {
       labelNo.value = 'Nein'
     })
     const update = () =>
-      fetch('http://jankuepper.de:3000/invites')
+      fetch('https://jankuepper.de:3000/invites')
         .then((res) => {
           return res.json()
         })
@@ -91,7 +91,7 @@ export default {
 
     const submit = async () => {
       try {
-        fetch('http://jankuepper.de:3000/invites', {
+        fetch('https://jankuepper.de:3000/invites', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 import db from "./db/conn.mjs";
+import { createServer } from "node:https";
+
+const key = fs.readFileSync("./certs/privkey.pem");
+const cert = fs.readFileSync("./certs/cert.pem");
 
 const app = express();
 const port = 3000;
@@ -25,6 +29,6 @@ app.post("/invites", express.json(), async (req, res) => {
   res.send(results);
 });
 
-app.listen(port, () => {
+https.createServer({ key, cert }, app).listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
