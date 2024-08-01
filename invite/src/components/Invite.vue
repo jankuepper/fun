@@ -67,7 +67,7 @@ export default {
     const radio = ref('yes')
     const labelYes = ref('Ja')
     const labelNo = ref('Nein')
-    const accepted = ref(undefined)
+    const accepted = ref()
     watch(radio, () => {
       if (radio.value === 'no') {
         labelYes.value = 'Nein'
@@ -119,4 +119,17 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h1,h2{
+  color: white;
+  background-color: blueviolet;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+img{
+  opacity: 0.9;
+  width: 100%;
+}
+
+</style>

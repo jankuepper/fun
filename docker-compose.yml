@@ -4,6 +4,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=user
       - MONGO_INITDB_ROOT_PASSWORD=pass
+    networks:
+      - backend
     volumes:
       - type: bind
         source: ./data
@@ -11,5 +13,26 @@ services:
   be:
     image: be
     build: ./invite-be
+    networks:
+      - frontend
+      - backend
     ports:
       - 3000:3000
+    depends_on:
+      - mongodb
+  fe:
+    image: fe
+    build: ./invite
+    networks:
+      - frontend
+    ports:
+      - 80:80
+    depends_on:
+      - be
+networks:
+  backend:
+    name: backend
+    driver: bridge
+  frontend:
+    name: frontend
+    driver: bridge
