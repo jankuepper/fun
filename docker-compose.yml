@@ -27,9 +27,6 @@ services:
       - frontend
     ports:
       - 80:80
-    volumes:
-      - /etc/nginx:/etc/nginx
-      - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
       - be
 networks:
