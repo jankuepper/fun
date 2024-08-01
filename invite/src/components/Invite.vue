@@ -77,8 +77,7 @@ export default {
       labelYes.value = 'Ja'
       labelNo.value = 'Nein'
     })
-
-    onMounted(() => {
+    const update = () =>
       fetch('http://localhost:3000/invites')
         .then((res) => {
           return res.json()
@@ -86,6 +85,8 @@ export default {
         .then((data) => {
           accepted.value = data
         })
+    onMounted(() => {
+      update()
     })
 
     const submit = async () => {
@@ -101,7 +102,7 @@ export default {
             allergies: allergies.value,
             accepted: radio.value
           })
-        })
+        }).then(() => update())
       } catch (error) {
         console.error(error)
       }
@@ -120,16 +121,16 @@ export default {
 </script>
 
 <style scoped>
-h1,h2{
+h1,
+h2 {
   color: white;
   background-color: blueviolet;
   margin-bottom: 10px;
   margin-top: 5px;
   padding-left: 10px;
 }
-img{
+img {
   opacity: 0.9;
   width: 100%;
 }
-
 </style>
