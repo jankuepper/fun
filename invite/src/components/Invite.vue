@@ -78,7 +78,9 @@ export default {
       labelNo.value = 'Nein'
     })
     const update = () =>
-      fetch('http://localhost:3000/invites')
+      fetch('http://localhost:3000/invites',{
+        mode: 'cors'
+      })
         .then((res) => {
           return res.json()
         })
@@ -93,6 +95,7 @@ export default {
       try {
         fetch('http://localhost:3000/invites', {
           method: 'POST',
+          mode:'cors',
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json'
