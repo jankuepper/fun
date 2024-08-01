@@ -78,9 +78,7 @@ export default {
       labelNo.value = 'Nein'
     })
     const update = () =>
-      fetch('http://localhost:3000/invites',{
-        mode: 'cors'
-      })
+      fetch('http://jankuepper:3000/invites')
         .then((res) => {
           return res.json()
         })
@@ -93,9 +91,8 @@ export default {
 
     const submit = async () => {
       try {
-        fetch('http://localhost:3000/invites', {
+        fetch('http://jankuepper:3000/invites', {
           method: 'POST',
-          mode:'cors',
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json'
