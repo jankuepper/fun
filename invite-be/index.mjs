@@ -5,7 +5,7 @@ import db from './db/conn.mjs'
 const app = express()
 const port = 3000
 app.use(cors({
-  origin: 'http://localhost'
+  origin: 'http://jankuepper.de'
 }))
 
 app.get('/invites', async (req, res) => {
